@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class Ejemplo2 {
 
 	public static void main(String[] args) {
+		/**
+		 * Programa que pide al usuario un numero que tiene que estar entre el 10 y el 20
+		 */
 		Scanner sc= new Scanner(System.in);
 		boolean correcto=false;
 		while(!correcto) {
@@ -21,8 +24,6 @@ public class Ejemplo2 {
 				System.out.println("Numero mal introducido");
 				sc=new Scanner(System.in);
 				
-			}catch(Exception e) {
-				System.out.println("Error generico");
 			}
 		}
 	}
