@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Tienda {
 
 	public static void main(String[] args) {
+		System.out.println("hola mundo");
 		Pelicula p1= new Pelicula();
 		p1.setTitulo("titanic");
 		p1.setDirector("James Cameron");
