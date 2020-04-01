@@ -3,7 +3,6 @@ package ejemplos;
 public class Aleatorio {
 
 	public static void main(String[] args) {
-		System.out.println("Hola nayra");
 		//Para generar un numero aleatorio utilizamos el Math.random(), 
 		//que dará un aleatorio entre 0 y 1
 		double aleatorio=Math.random();
