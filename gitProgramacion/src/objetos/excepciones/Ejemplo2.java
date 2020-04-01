@@ -19,6 +19,7 @@ public class Ejemplo2 {
 				//La siguiente linea "peta" si el usuario no mete un numero
 				int numero=sc.nextInt();
 				if(numero>=10 && numero<=20) {
+					
 					correcto=true;
 				}else {
 					System.out.println("El numero debe estar entre 10 y 20");
