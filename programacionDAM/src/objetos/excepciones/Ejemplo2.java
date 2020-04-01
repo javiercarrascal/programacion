@@ -22,7 +22,7 @@ public class Ejemplo2 {
 				sc=new Scanner(System.in);
 				
 			}catch(Exception e) {
-				System.out.println("Error generico");
+				System.out.println("Error generico ");
 			}
 		}
 	}
