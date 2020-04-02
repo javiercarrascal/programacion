@@ -1,14 +1,25 @@
 package objetos.excepciones;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ejercicio1 {
 
 	public static void main(String[] args) {
 		Scanner sc= new Scanner(System.in);
-		System.out.println("Hola mundo! este es el cambio.");
-		System.out.println("Introduce el mes: ");
-		int mes=sc.nextInt();
+		boolean correcto=false;
+		int mes=0;
+		while(!correcto) {
+			try {
+				System.out.println("Introduce el mes: ");
+				mes=sc.nextInt();
+				correcto=true;
+			}catch(InputMismatchException e) {
+				System.out.println("Debe introducir un numero.");
+				sc= new Scanner(System.in);
+			}
+		}
+		
 		switch(mes) {
 			case 1: case 3: case 5: case 7: case 8: case 10: case 12:
 				System.out.println("El mes introducido tiene 31 días");
