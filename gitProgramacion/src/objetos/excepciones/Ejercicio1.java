@@ -7,15 +7,20 @@ public class Ejercicio1 {
 
 	public static void main(String[] args) {
 		Scanner sc= new Scanner(System.in);
+		
+		//La variable correcto controla si se ha introducido un numero o no
 		boolean correcto=false;
 		int mes=0;
 		while(!correcto) {
+			System.out.println("Introduce el mes: ");
 			try {
-				System.out.println("Introduce el mes: ");
+				//La siguiente linea es la susceptible de causar una excepcion
 				mes=sc.nextInt();
+				//Si llega a esta linea es porque no se ha lanzado una excepcion
 				correcto=true;
 			}catch(InputMismatchException e) {
 				System.out.println("Debe introducir un numero.");
+				//NEcesito resetera el scanner para que funcione
 				sc= new Scanner(System.in);
 			}
 		}
