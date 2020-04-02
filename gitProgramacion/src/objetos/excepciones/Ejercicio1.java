@@ -6,6 +6,7 @@ public class Ejercicio1 {
 
 	public static void main(String[] args) {
 		Scanner sc= new Scanner(System.in);
+		System.out.println("Hola mundo! este es el cambio.");
 		System.out.println("Introduce el mes: ");
 		int mes=sc.nextInt();
 		switch(mes) {
