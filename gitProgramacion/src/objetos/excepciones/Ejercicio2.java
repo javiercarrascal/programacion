@@ -1,5 +1,6 @@
 package objetos.excepciones;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ejercicio2 {
@@ -18,14 +19,32 @@ public class Ejercicio2 {
 		}
 		System.out.println("]");
 		for(int i=0;i<2;i++) {
-			System.out.println("Introduce un numero: ");
-			int numero=sc.nextInt();
-			System.out.println("Introduce la posicion en la que lo quieres insertar: ");
-			int posicion=sc.nextInt();
-			for(int j=array.length-1;j>posicion;j--) {
-				array[j]=array[j-1];			
+			boolean correcto=false;
+			int numero=0, posicion=0;
+			while(!correcto) {
+				try {
+					System.out.println("Introduce un numero: ");
+					numero=sc.nextInt();
+					System.out.println("Introduce la posicion en la que lo quieres insertar: ");
+					posicion=sc.nextInt();
+					correcto=true;
+				}catch(InputMismatchException e) {
+					System.out.println("Debe introducir un valor numerico.");
+					sc= new Scanner(System.in);
+				}
 			}
-			array[posicion]=numero;
+			
+			try {
+				for(int j=array.length-1;j>posicion;j--) {
+					array[j]=array[j-1];			
+				}
+				array[posicion]=numero;
+			}catch(ArrayIndexOutOfBoundsException ex){
+				System.out.println("Posición del array no válida");
+				//Para que vuelva a hacer otra vez la peticion en caso de fallo
+				i--;
+			}
+			
 		}
 		System.out.print("LISTA 1: [");
 		for(int i=0;i<array.length;i++) {
