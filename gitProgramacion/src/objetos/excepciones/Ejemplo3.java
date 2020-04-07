@@ -9,14 +9,17 @@ public class Ejemplo3 {
 		try {
 			//Provocamos una excepcion de tipo aritmetica
 			int a= 100/0;
-			System.out.println(array[6]);
+			System.out.println(array[6]);	
 		}catch(ArrayIndexOutOfBoundsException ex) {
-			System.out.println("Error al acceder al array.");		
+			System.out.println("Error al acceder al array.");	
 		}catch(ArithmeticException ex) {
 			System.out.println("Error division entre 0");
+			System.out.println(ex.getMessage());
+			ex.printStackTrace();
 		}catch(Exception ex) {
 			System.out.println("Otro error distinto.");
 		}
+		System.out.println("La aplicación no ha petado");
 
 	}
 
