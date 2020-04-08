@@ -6,12 +6,14 @@ public class Ejemplo4 {
 
 	public static void main(String[] args) {
 	
-			try {
-				dividirCero();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		
+				try {
+					dividirCero();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
 	
 	}
 	
