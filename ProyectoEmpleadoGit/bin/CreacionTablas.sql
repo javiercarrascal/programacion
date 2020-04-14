@@ -1,5 +1,6 @@
 
 -- Nombre de la base de datos: Proyecto_empleados
+
 create table departamentos(
   numero int(5) primary key,
   nombre VARCHAR(30),
