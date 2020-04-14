@@ -121,14 +121,25 @@ public class MenuPrincipal {
 		Scanner sc = new Scanner(System.in);
 		boolean salir=false;
 		while(!salir) {
-			System.out.println("1. Totales");
-			System.out.println("2. Por estantería");
-			System.out.println("3. Por marca");
-			System.out.println("4. Por precio");
-			System.out.println("5. Volver");
-			System.out.println("Introduce la opcion que deseas: ");
-			int opcion=sc.nextInt();
+			boolean correcto=false;
+			int opcion=0;
+			while(!correcto) {
+				System.out.println("1. Totales");
+				System.out.println("2. Por estantería");
+				System.out.println("3. Por marca");
+				System.out.println("4. Por precio");
+				System.out.println("5. Volver");
+				System.out.println("Introduce la opcion que deseas: ");
+				try {
+					opcion=sc.nextInt();
+					correcto=true;
+				}catch (InputMismatchException e) {
+					System.out.println("El caracter introducido no es válido.");
+					sc = new Scanner(System.in);
+				}
+			}
 			//Cada case del switch nos lleva a un metodo distinto
+				
 			switch(opcion) {
 			case 1: 
 				//Llamo al método calcularPrecio de la calse Almacen
@@ -149,6 +160,7 @@ public class MenuPrincipal {
 				salir=true;
 				break;
 			}
+			
 		}
 	}
 	
