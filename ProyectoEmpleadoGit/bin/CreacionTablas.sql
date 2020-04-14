@@ -1,18 +1,19 @@
-create table depart(
-  dept_no int(5) primary key,
-  dnombre VARCHAR(30),
-  loc VARCHAR(30)
+create table departamentos(
+  numero int(5) primary key,
+  nombre VARCHAR(30),
+  localidad VARCHAR(30)
 );
 
 
-create table emple(
-  emp_no int(5) PRIMARY KEY,
-  apellido VARCHAR(50) NOT NULL,
+create table empleados(
+  numero int(5) PRIMARY KEY,
+  apellidos VARCHAR(50) NOT NULL,
   oficio VARCHAR(30),
-  dir int(5), 
-  fecha_alt DATE, 
+  codigo_postal int(5), 
+  fecha_alta DATE, 
   salario int(5),
   comision int(5),
-  dept_no int(5),
-  constraint fk_emple_depart foreign key (dept_no) references depart(dept_no)
+  numero_departamento int(5),
+  constraint fk_emple_depart foreign key (numero_departamento) 
+  references departamentos(numero)
 );
