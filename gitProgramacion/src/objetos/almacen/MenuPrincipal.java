@@ -1,6 +1,7 @@
 package objetos.almacen;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuPrincipal {
@@ -14,14 +15,24 @@ public class MenuPrincipal {
 		Scanner sc = new Scanner(System.in);
 		//Esta variable nos sirve para salirnos del menu principal o no
 		boolean salir=false;
+		int opcion=0;
 		while(!salir) {
-			System.out.println("1. Nueva bebida");
-			System.out.println("2. Estadísticas");
-			System.out.println("3. Comprar");
-			System.out.println("4. Consultar Carrito");
-			System.out.println("5. Salir");
-			System.out.println("Introduce la opcion que deseas: ");
-			int opcion=sc.nextInt();
+			boolean correcto=false;
+			while(!correcto) {
+				System.out.println("1. Nueva bebida");
+				System.out.println("2. Estadísticas");
+				System.out.println("3. Comprar");
+				System.out.println("4. Consultar Carrito");
+				System.out.println("5. Salir");
+				System.out.println("Introduce la opcion que deseas: ");
+				try {
+					opcion=sc.nextInt();
+					correcto=true;
+				}catch(InputMismatchException ex) {
+					System.out.println("El valor introducido no es un número.");
+					sc = new Scanner(System.in);
+				}
+			}
 			//Cada case del seitch nos lleva a un metodo distinto
 			switch(opcion) {
 			case 1: menuNuevaBebida();
