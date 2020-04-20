@@ -18,18 +18,12 @@ public class Empleado {
 	private Date fechaAlta;
 	private int salario;
 	private int comision;
-	private Departamento departamento;
+
 
 	public Empleado() {
 	}
-	
-	public Departamento getDepartamento() {
-		return departamento;
-	}
 
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
-	}
+
 
 	public Empleado(int numero, String nombre, String oficio, int direccion, Date fechaAlta, int salario,
 			int comision) {
@@ -41,19 +35,6 @@ public class Empleado {
 		this.fechaAlta = fechaAlta;
 		this.salario = salario;
 		this.comision = comision;
-	}
-	
-	public Empleado(int numero, String nombre, String oficio, int direccion, Date fechaAlta, int salario, int comision,
-			Departamento departamento) {
-		super();
-		this.numero = numero;
-		this.nombre = nombre;
-		this.oficio = oficio;
-		this.direccion = direccion;
-		this.fechaAlta = fechaAlta;
-		this.salario = salario;
-		this.comision = comision;
-		this.departamento = departamento;
 	}
 
 	public int getNumero() {

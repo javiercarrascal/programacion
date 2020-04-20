@@ -37,17 +37,18 @@ public String getNombre() {
 public void setNombre(String nombre) {
 	this.nombre = nombre;
 }
-public String getLocalizacion() {
+public String getLocalidad() {
 	return localidad;
 }
-public void setLocalizacion(String localizacion) {
-	this.localidad = localizacion;
+public void setLocalidad(String localidad) {
+	this.localidad = localidad;
 }
 public ArrayList<Empleado> getEmpleados() {
 	return empleados;
 }
 public void setEmpleados(ArrayList<Empleado> empleados) {
 	this.empleados = empleados;
+	
 }
 
 

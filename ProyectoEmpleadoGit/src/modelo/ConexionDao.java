@@ -20,8 +20,8 @@ public class ConexionDao {
 	/**
 	 * CONEXION PARA VERSION 5
 	 * @return
-	 */
-/**	public static Connection conexion(){
+	 *//**
+public static Connection conexion(){
 		try {
 			//Cargamos el driver para conectar con mysql
 			Class.forName("com.mysql.jdbc.Driver");
@@ -29,7 +29,7 @@ public class ConexionDao {
 			//Seguido de el usuario y la contraseña para acceder
 	        Connection 
 	        		con=DriverManager.getConnection
-	        		("jdbc:mysql://localhost/bd_empleado","root","");
+	        		("jdbc:mysql://localhost/proyecto_empleados","root","");
 	        System.out.println("Conexion con base de datos realizada.");
 			return con;
 			
@@ -52,12 +52,12 @@ public class ConexionDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			//Localhost : La base de datos es local, sino pondriamos una ip
 			//3306: es el puerto de mysql
-			//proyecto_empleados : nombre del proyecto
+			//proyecto_empleados : nombre de la base de datos/esquema
 			//serverTimezone=UTC : uso horario de la bbdd
 			//1: usuario
 			//2: contraseña
 			Connection con=DriverManager.getConnection
-					("jdbc:mysql://localhost:3306/proyecto_empleados?serverTimezone=UTC","root","1234");
+					("jdbc:mysql://localhost:3306/proyecto_empleados?serverTimezone=UTC","root","");
 			System.out.println("Conexion con base de datos realizada");
 			return con;
 			
@@ -65,6 +65,7 @@ public class ConexionDao {
 			//Entra a este catch si no se encuentra la clase
 			System.err.println("Clase mysql no encontrada");
 		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 			System.err.println("Error en la conexion");
 		}
 		return null;

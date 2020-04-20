@@ -1,4 +1,6 @@
 
+use libros;
+
 INSERT INTO Autores VALUES ( 2 , 'GARY CORNELL' , 'Castellon' , '21345678' ) ;
 INSERT INTO Autores VALUES ( 3 , 'DAVID REILLY' , 'Alicante' , '32145678' ) ; 
 INSERT INTO Autores VALUES ( 4 , 'MICHAEL REILLY' , 'Elche' , '43215678' ) ; 
