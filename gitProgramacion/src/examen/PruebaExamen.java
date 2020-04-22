@@ -2,13 +2,14 @@ package examen;
 
 import java.util.ArrayList;
 
+import examen.Hora;
+
 public class PruebaExamen {
 	
 	public static void main(String[] args) {
 		double puntuacion=0;
 		boolean correcto=true;
 		
-
 		
 		Abaco abaco2;
 		abaco2=new Abaco();	
@@ -37,7 +38,8 @@ public class PruebaExamen {
 			System.out.println("getters y setters incorrectos");
 		}
 		
-	
+		
+		
 		
 		correcto=true;
 		abaco = new Abaco(4,3,2,1);
@@ -64,6 +66,9 @@ public class PruebaExamen {
 			System.out.println("Constructor 4 parametros y valida incorrecto");
 		}
 		
+		
+		  
+
 		correcto=true;
 		abaco = new Abaco(4321);
 		if(abaco.getUnidades()!=1){
@@ -88,6 +93,13 @@ public class PruebaExamen {
 		}else{
 			System.out.println("Constructor 1 parametro incorrecto");
 		}
+		
+		
+		
+		
+		
+	
+		 
 		 
 		System.out.println("Introduce los datos 5,6,7,8");
 		correcto=true;
@@ -110,7 +122,18 @@ public class PruebaExamen {
 		}else{
 			System.out.println("Pedir datos incorrecto");
 		}
+		// ToString
+		System.out.println("Se deberán imprimir los datos del objeto a continuacion");
+		
+		
 	
+		
+		
+		
+		
+
+		 
+
 		correcto=true;
 		abaco = new Abaco();
 		abaco.setUnidades(9);
@@ -139,7 +162,12 @@ public class PruebaExamen {
 			System.out.println("Siguiente incorrecto");
 		}
 		
-	
+		
+		
+		
+		
+		
+		
 		
 				correcto=true;
 				abaco = new Abaco();
@@ -166,7 +194,12 @@ public class PruebaExamen {
 				}else{
 					System.out.println("Anterior incorrecto");
 				}
-
+		
+		
+		
+		
+		
+				
 				correcto=true;
 				abaco = new Abaco();
 				abaco.setUnidades(5);
@@ -202,6 +235,10 @@ public class PruebaExamen {
 				
 			
 				
+				
+		
+			
+				
 				correcto=true;
 				abaco = new Abaco();
 				abaco.setUnidades(5);
@@ -235,8 +272,17 @@ public class PruebaExamen {
 					System.out.println("Resta - 1 incorrecto");
 				}
 				
+				
+				
+			
+		
+		
+		
+		
+		
 		
 			
+				
 				correcto=true;
 				abaco = new Abaco();
 				abaco.setUnidades(5);
@@ -270,7 +316,17 @@ public class PruebaExamen {
 					System.out.println("Multiplica incorrecto");
 				}
 				
-			
+				
+				
+				
+		
+		
+		
+		
+		
+			/**	
+				
+				
 				correcto=true;
 				abaco = new Abaco();
 				abaco.setUnidades(1);
@@ -278,7 +334,7 @@ public class PruebaExamen {
 				abaco.setCentenas(3);
 				abaco.setUnidMillar(4);
 				
-				abaco2 = new Abaco(abaco);
+				abaco2 = abaco.copia();
 				
 				if(abaco2.getUnidades()!=1){
 					correcto=false;
@@ -298,6 +354,15 @@ public class PruebaExamen {
 				}else{
 					System.out.println("Copia incorrecto");
 				}
+				
+				
+				**/
+				
+				
+				
+				
+				
+				
 				
 				correcto=true;
 				abaco = new Abaco();
@@ -320,55 +385,50 @@ public class PruebaExamen {
 				}else{
 					System.out.println("Igual incorrecto");
 				}
-			
+				
 		
 		System.out.println("Nombre del alumno");
 		System.out.println("Nota sobre : " + puntuacion);
 		System.out.println("observaciones del alumno");
-		//Crear el arrayList de horas y rellenarlo 
-		ArrayList<Hora> horas = new ArrayList<Hora>();
-		Hora h1= new Hora(10,10,10);
-		Hora h2= new Hora(5,5,5);
-		Hora h3= new Hora(1,1,1);
-		horas.add(h1); horas.add(h2); horas.add(h3);
 		
+		
+		
+		
+		ArrayList<Hora> horas= new ArrayList<Hora>();
+		Hora h1= new Hora (10, 10, 10);
+		Hora h2=new Hora(05, 05, 05);
+		Hora h3=new Hora(01, 01, 01);
+		
+		horas.add(h1);
+		horas.add(h2);
+		horas.add(h3);
+
 		Hora h4= new Hora();
 		h4.leer();
+		
 		horas.add(h4);
 		
-		int sumaHoras=0;
-		for(int i=0;i<horas.size();i++) {
-			sumaHoras+=horas.get(i).getHoras();
+		int i, suma=0;
+		for(i=0;i<horas.size(); i++) {
+			suma+=horas.get(i).getHoras();	
 		}
-		System.out.println("La suma de horas es " + sumaHoras);
+		System.out.println("El total de las horas contenidas es " + suma);
 		
-		for(Hora h : horas) {
-			h.aSegundos();
+		
+		for(Hora h: horas) {
+			System.out.println("Los segundos transcurridos son: " + h.aSegundos());
 		}
-		for(Hora h : horas) {
-			if(h.getHoras()+h.getSegundos()+h.getMinutos()>20) {
-				System.out.println(h);
+		
+		
+		int sum;
+		for(i=0; i<horas.size(); i++) {
+			sum=0;
+			sum=horas.get(i).getHoras()+horas.get(i).getMinutos()+horas.get(i).getSegundos();
+			if(sum>20) {
+				System.out.println(horas.get(i));
 			}
+		
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 	}
 

@@ -41,6 +41,10 @@ public class Utilidades {
 	}
 	
 	public static Date parsearFechaString(String fechaString) throws ParseException{
+		//dd: minusculas ->dia
+		//MM: may -> mes
+		//yyyy : año
+		//En el constructor del simpledateformat le pasamos el formato
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		java.util.Date utilDate = sdf.parse(fechaString);
 		return utilDate;

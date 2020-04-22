@@ -12,7 +12,7 @@ import utilidades.Utilidades;
 //Constructor con todos los atributos suele ser recomendable
 public class Empleado {
 	private int numero;
-	private String nombre;
+	private String apellidos;
 	private String oficio;
 	private int direccion;
 	private Date fechaAlta;
@@ -25,11 +25,11 @@ public class Empleado {
 
 
 
-	public Empleado(int numero, String nombre, String oficio, int direccion, Date fechaAlta, int salario,
-			int comision) {
+	public Empleado(int numero, String apellidos, String oficio, int direccion, Date fechaAlta, 
+			int salario,int comision) {
 		super();
 		this.numero = numero;
-		this.nombre = nombre;
+		this.apellidos = apellidos;
 		this.oficio = oficio;
 		this.direccion = direccion;
 		this.fechaAlta = fechaAlta;
@@ -43,11 +43,11 @@ public class Empleado {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getNombre() {
-		return nombre;
+	public String getApellidos() {
+		return apellidos;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 	public String getOficio() {
 		return oficio;
@@ -87,8 +87,8 @@ public class Empleado {
 		System.out.println("Por favor introduzca el numero de empleado ");
 		this.numero = sc.nextInt();
 		Scanner pk = new Scanner(System.in);
-		System.out.println("Introduzca el nombre del empleado ");
-		this.nombre = pk.nextLine();
+		System.out.println("Introduzca el apellido del empleado ");
+		this.apellidos = pk.nextLine();
 		System.out.println("Introduzca el oficio del empleado ");
 		this.oficio = pk.nextLine();
 		System.out.println("Introduzca el numero de la direccion del empleado ");

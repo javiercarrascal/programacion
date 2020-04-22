@@ -20,7 +20,7 @@ public class ConexionDao {
 	/**
 	 * CONEXION PARA VERSION 5
 	 * @return
-	 *//**
+	 */
 public static Connection conexion(){
 		try {
 			//Cargamos el driver para conectar con mysql
@@ -40,11 +40,11 @@ public static Connection conexion(){
 		}
 		return null;
 	}
-	**/
+	
 	/**
 	 * CONEXION PARA VERSION 8
 	 * @return
-	 */
+	 *//**
 	
 	public static Connection conexion() {
 		try {
@@ -72,10 +72,11 @@ public static Connection conexion(){
 	}
 	
 	
+
+
+
+
+**/
+
+
 }
-
-
-
-
-
-
