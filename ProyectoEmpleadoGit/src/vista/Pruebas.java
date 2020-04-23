@@ -1,12 +1,10 @@
 package vista;
 
-import java.text.ParseException;
+import java.util.ArrayList;
 
 import controlador.Departamento;
-import controlador.Empleado;
 import modelo.ConexionDao;
 import modelo.DepartamentoDao;
-import utilidades.Utilidades;
 
 public class Pruebas {
 
@@ -35,22 +33,38 @@ public class Pruebas {
 		
 		ConexionDao conDao = new ConexionDao();
 		DepartamentoDao depDao = new DepartamentoDao(conDao.getConexion());
-		
-		Departamento depart= new Departamento(1,"contabilidad","Madrid");
+		/**
+		Departamento depart= new Departamento(2,"administracion","Bilbao");
 		int filasAfectadas= DepartamentoDao.insertar(depart);
 		if(filasAfectadas==1) {
 			System.out.println("Departamento introducido");
 		}else {
 			System.out.println("Error al insertar departamento.");
 		}
-	
+	**/
+		
+		
+		ArrayList<Departamento> departamentos=DepartamentoDao.consultaDepartamentos();
+		for(Departamento de:departamentos) {
+			System.out.println(de);
+		}
 		
 		
 		
 		
 		
 		
-		//DepartamentoDao depDao= new DepartamentoDao(conDao.getConexion());
-	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}
 
 }

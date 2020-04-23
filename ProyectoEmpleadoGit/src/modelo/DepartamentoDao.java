@@ -2,9 +2,13 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import controlador.Departamento;
+
 
 public class DepartamentoDao {
 	public static Connection conexion;
@@ -34,6 +38,32 @@ public class DepartamentoDao {
 			return -1;
 		}
 	}
+	//Metodo que consulta los departamentos de la bbdd y devuelve todos
+	static public ArrayList<Departamento> consultaDepartamentos(){
+		//Creo el arrayList de departamentos donde los ire guardando 
+		ArrayList<Departamento> aDepartamentos = new ArrayList<Departamento>();
+		try{
+			Statement st=conexion.createStatement();
+			//ResultSet: tipo de dato donde se recoge lo que venga de la tabla
+			ResultSet rs=st.executeQuery("SELECT * FROM departamentos");
+			//Automaticamente se coloca en la posicion 0
+			//rs.next() devuelve true si hay algo en la siguiente posicion
+			while(rs.next()){
+				//Entre comillas va EL NOMBRE DE LA COLUMNA EN LA BBDD
+				int numero=rs.getInt("numero");
+				String nombre=rs.getString("nombre");
+				String direccion=rs.getString("localidad");
+				Departamento dep = new Departamento(numero, nombre, direccion);
+				//Guardo en el array de departamentos el que acabo de crear
+				aDepartamentos.add(dep);
+			}
+			return aDepartamentos;	
+		}catch (SQLException e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 
 
 	
