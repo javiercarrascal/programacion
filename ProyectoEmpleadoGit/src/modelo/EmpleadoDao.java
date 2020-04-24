@@ -5,12 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
 import controlador.Departamento;
 import controlador.Empleado;
 import utilidades.Utilidades;
 public class EmpleadoDao {
 	private static Connection conexion;
+	
+	public EmpleadoDao(Connection conexion) {
+		this.conexion=conexion;
+	}
+	
 	public static Connection getConexion() {
 		return conexion;
 	}
@@ -40,6 +46,37 @@ public class EmpleadoDao {
 			e.printStackTrace();
 			System.out.println("Fallo al insertar empleado.");
 			return -1;
+		}
+	}
+	
+	//Metodo que consulta los departamentos de la bbdd y devuelve todos
+	static public ArrayList<Empleado> consultaEmpleados(){
+		//Creo el arrayList de departamentos donde los ire guardando 
+		ArrayList<Empleado> aEmpleados = new ArrayList<Empleado>();
+		try{
+			Statement st=conexion.createStatement();
+			//ResultSet: tipo de dato donde se recoge lo que venga de la tabla
+			ResultSet rs=st.executeQuery("SELECT * FROM empleados");
+			//Automaticamente se coloca en la posicion 0
+			//rs.next() devuelve true si hay algo en la siguiente posicion
+			while(rs.next()){
+				//Entre comillas va EL NOMBRE DE LA COLUMNA EN LA BBDD
+				int numero=rs.getInt("numero");;
+				String apellidos=rs.getString("apellidos");
+				String oficio = rs.getString("oficio");
+				int direccion = rs.getInt("codigo_postal");
+				Date fechaAlta =  rs.getDate("fecha_alta");
+				int salario = rs.getInt("salario");
+				int comision = rs.getInt("comision");
+				Empleado emple= new Empleado(numero, apellidos, oficio, direccion, fechaAlta,
+						salario, comision);
+				//Guardo en el array de departamentos el que acabo de crear
+				aEmpleados.add(emple);
+			}
+			return aEmpleados;
+		}catch (SQLException e){
+			e.printStackTrace();
+			return null;
 		}
 	}
 		

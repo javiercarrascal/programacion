@@ -113,6 +113,14 @@ public class Empleado {
 	}
 
 
+
+	@Override
+	public String toString() {
+		return "Empleado [numero=" + numero + ", apellidos=" + apellidos + ", oficio=" + oficio + ", direccion="
+				+ direccion + ", fechaAlta=" + fechaAlta + ", salario=" + salario + ", comision=" + comision + "]";
+	}
+
+
 	
 	
 	

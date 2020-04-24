@@ -1,10 +1,15 @@
 package vista;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import controlador.Departamento;
+import controlador.Empleado;
 import modelo.ConexionDao;
 import modelo.DepartamentoDao;
+import modelo.EmpleadoDao;
+import utilidades.Utilidades;
 
 public class Pruebas {
 
@@ -33,6 +38,17 @@ public class Pruebas {
 		
 		ConexionDao conDao = new ConexionDao();
 		DepartamentoDao depDao = new DepartamentoDao(conDao.getConexion());
+		EmpleadoDao empDao= new EmpleadoDao(conDao.getConexion());
+		/**
+		try {
+			Empleado emple1= new Empleado(1,"perez", "contable",28008,
+					Utilidades.parsearFechaString("29/04/990"),1000,10);
+			empDao.insertar(emple1);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		**/
 		/**
 		Departamento depart= new Departamento(2,"administracion","Bilbao");
 		int filasAfectadas= DepartamentoDao.insertar(depart);
@@ -52,7 +68,10 @@ public class Pruebas {
 		
 		
 		
-		
+		ArrayList<Empleado> empleados=EmpleadoDao.consultaEmpleados();
+		for(Empleado emp:empleados) {
+			System.out.println(emp);
+		}
 		
 		
 		
