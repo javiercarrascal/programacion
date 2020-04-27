@@ -59,18 +59,11 @@ public class Pruebas {
 		}
 	**/
 		
-		
-		ArrayList<Departamento> departamentos=DepartamentoDao.consultaDepartamentos();
-		for(Departamento de:departamentos) {
-			System.out.println(de);
-		}
-		
-		
-		
-		
-		ArrayList<Empleado> empleados=EmpleadoDao.consultaEmpleados();
-		for(Empleado emp:empleados) {
-			System.out.println(emp);
+
+		Departamento d=DepartamentoDao.consultaDepartamentoPorNumero(1);
+		System.out.println(d);
+		for(Empleado e:d.getEmpleados()) {
+			System.out.println(e);
 		}
 		
 		

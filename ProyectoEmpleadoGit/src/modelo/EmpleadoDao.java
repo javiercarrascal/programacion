@@ -79,7 +79,37 @@ public class EmpleadoDao {
 			return null;
 		}
 	}
-		
+	//Metodo que consulta los departamentos de la bbdd y devuelve todos
+		static public ArrayList<Empleado> consultaEmpleadosPorNumeroDepartamento(int num){
+			//Creo el arrayList de departamentos donde los ire guardando 
+			ArrayList<Empleado> aEmpleados = new ArrayList<Empleado>();
+			try{
+				PreparedStatement st=conexion.prepareStatement("SELECT * FROM empleados where numero_departamento= ?");
+				st.setInt(1,  num);
+				//ResultSet: tipo de dato donde se recoge lo que venga de la tabla
+				ResultSet rs=st.executeQuery();
+				//Automaticamente se coloca en la posicion 0
+				//rs.next() devuelve true si hay algo en la siguiente posicion
+				while(rs.next()){
+					//Entre comillas va EL NOMBRE DE LA COLUMNA EN LA BBDD
+					int numero=rs.getInt("numero");;
+					String apellidos=rs.getString("apellidos");
+					String oficio = rs.getString("oficio");
+					int direccion = rs.getInt("codigo_postal");
+					Date fechaAlta =  rs.getDate("fecha_alta");
+					int salario = rs.getInt("salario");
+					int comision = rs.getInt("comision");
+					Empleado emple= new Empleado(numero, apellidos, oficio, direccion, fechaAlta,
+							salario, comision);
+					//Guardo en el array de departamentos el que acabo de crear
+					aEmpleados.add(emple);
+				}
+				return aEmpleados;
+			}catch (SQLException e){
+				e.printStackTrace();
+				return null;
+			}
+		}	
 	
 	
 

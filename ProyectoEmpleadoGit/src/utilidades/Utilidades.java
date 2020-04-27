@@ -2,7 +2,9 @@ package utilidades;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -64,6 +66,47 @@ public class Utilidades {
 		String convertido = fechaHora.format(fechaDate);
 		return convertido;
 	}
+
+	public Date aumentarMinutos(Date fecha, int minutos) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(fecha);
+		//aumenta a la fecha los minutos que se le indican en la var minutos
+		cal.add(Calendar.MINUTE, minutos);
+		fecha=cal.getTime();
+		return fecha;	
+	}
+	
+	//Devuelve >0 si fecha1 > fecha2. <0 si fecha1 < fecha2. 0 si son iguales
+	public int fechaMayor(Date fecha1, Date fecha2) {
+		int valor= fecha1.compareTo(fecha2);
+	    return valor;
+	}
+	
+	public Date introducirFecha () {
+		System.out.println("Introduce la fecha con este formato: dd/MM/yyyy");
+		Scanner sc = new Scanner(System.in);
+		String fecha=sc.nextLine();
+		Date fechaCorrecta;
+		try {
+			fechaCorrecta = parsearFechaString(fecha);
+			return fechaCorrecta;
+		} catch (ParseException e) {
+			return null;
+		}
+	}
+	
+	//Devuelve el dia de la semana 1-Lunes ... 7-domingo
+	public int getDia(Date fecha) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(fecha);
+		int day = cal.get(Calendar.DAY_OF_WEEK);
+		if (day==0) {
+			day=7;
+		}
+		return day;
+	}
+	
+	
 	public static void clear(){
 		for(int i = 0; i < 1000; i++){
 			System.out.println("");

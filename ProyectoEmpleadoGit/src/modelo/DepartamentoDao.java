@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import controlador.Departamento;
+import controlador.Empleado;
 
 
 public class DepartamentoDao {
@@ -63,7 +64,35 @@ public class DepartamentoDao {
 			return null;
 		}
 	}
-	
+	//Metodo que recibe el numero de departamento y lo devuelve con sus empleados cargados
+	static public Departamento consultaDepartamentoPorNumero(int numero){
+		//Creo el arrayList de departamentos donde los ire guardando 
+		ArrayList<Empleado> aEmpleados = null;
+		Departamento dep=null;
+		try{
+			PreparedStatement st=
+					conexion.prepareStatement("SELECT * FROM departamentos where numero= ?");
+			
+			st.setInt(1, numero);
+			//ResultSet: tipo de dato donde se recoge lo que venga de la tabla
+			ResultSet rs=st.executeQuery();
+			//Automaticamente se coloca en la posicion 0
+			//rs.first() se posiciona en la primera posicion del resultset
+			if(rs.first()) {
+				//Entre comillas va EL NOMBRE DE LA COLUMNA EN LA BBDD
+				numero=rs.getInt("numero");
+				String nombre=rs.getString("nombre");
+				String direccion=rs.getString("localidad");
+				dep= new Departamento(numero, nombre, direccion);
+				aEmpleados=EmpleadoDao.consultaEmpleadosPorNumeroDepartamento(numero);
+				dep.setEmpleados(aEmpleados);
+			}
+			return dep;
+		}catch (SQLException e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 
 	
