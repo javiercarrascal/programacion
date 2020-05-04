@@ -39,6 +39,32 @@ public class DepartamentoDao {
 			return -1;
 		}
 	}
+	
+	
+	//Metodo que recibe un código de departamento y lo elimina
+	public static int eliminar(int codigo){
+		try{
+			//1 interrogacion: numero
+			PreparedStatement stmt = conexion.prepareStatement
+					("delete from departamentos where codigo = ?");
+			
+			//Ahora sustituimos las interrogaciones por el contenido de la variable
+			stmt.setInt(1, codigo);
+			//ExecuteUpdate cuando quiero realizar una modificacion en la bbdd
+			return stmt.executeUpdate();
+		} catch(SQLException e){
+			e.printStackTrace();
+			return -1;
+		}
+	}
+	
+	public static int actualizar(Departamento depar) {return -1;}
+
+	
+	
+	
+	
+	
 	//Metodo que consulta los departamentos de la bbdd y devuelve todos
 	static public ArrayList<Departamento> consultaDepartamentos(){
 		//Creo el arrayList de departamentos donde los ire guardando 
@@ -72,7 +98,6 @@ public class DepartamentoDao {
 		try{
 			PreparedStatement st=
 					conexion.prepareStatement("SELECT * FROM departamentos where numero= ?");
-			
 			st.setInt(1, numero);
 			//ResultSet: tipo de dato donde se recoge lo que venga de la tabla
 			ResultSet rs=st.executeQuery();
@@ -84,6 +109,7 @@ public class DepartamentoDao {
 				String nombre=rs.getString("nombre");
 				String direccion=rs.getString("localidad");
 				dep= new Departamento(numero, nombre, direccion);
+				//Consulto a empleadoDao los empleados de este departamento
 				aEmpleados=EmpleadoDao.consultaEmpleadosPorNumeroDepartamento(numero);
 				dep.setEmpleados(aEmpleados);
 			}

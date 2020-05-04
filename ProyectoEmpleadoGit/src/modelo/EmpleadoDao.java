@@ -49,9 +49,9 @@ public class EmpleadoDao {
 		}
 	}
 	
-	//Metodo que consulta los departamentos de la bbdd y devuelve todos
+	//Metodo que consulta los empleados de la bbdd y devuelve todos
 	static public ArrayList<Empleado> consultaEmpleados(){
-		//Creo el arrayList de departamentos donde los ire guardando 
+		//Creo el arrayList de empleados donde los ire guardando 
 		ArrayList<Empleado> aEmpleados = new ArrayList<Empleado>();
 		try{
 			Statement st=conexion.createStatement();
@@ -79,7 +79,7 @@ public class EmpleadoDao {
 			return null;
 		}
 	}
-	//Metodo que consulta los departamentos de la bbdd y devuelve todos
+	//Metodo que consulta los departamentos por el numero del departamento en que traajan
 		static public ArrayList<Empleado> consultaEmpleadosPorNumeroDepartamento(int num){
 			//Creo el arrayList de departamentos donde los ire guardando 
 			ArrayList<Empleado> aEmpleados = new ArrayList<Empleado>();

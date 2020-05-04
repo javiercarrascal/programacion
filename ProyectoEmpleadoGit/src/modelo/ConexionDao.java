@@ -20,7 +20,7 @@ public class ConexionDao {
 	/**
 	 * CONEXION PARA VERSION 5
 	 * @return
-	 */
+	 *//**
 public static Connection conexion(){
 		try {
 			//Cargamos el driver para conectar con mysql
@@ -39,12 +39,12 @@ public static Connection conexion(){
 			System.out.println("Error en la conexion.");
 		}
 		return null;
-	}
+	}**/
 	
 	/**
 	 * CONEXION PARA VERSION 8
 	 * @return
-	 *//**
+	 */
 	
 	public static Connection conexion() {
 		try {
@@ -57,7 +57,12 @@ public static Connection conexion(){
 			//1: usuario
 			//2: contraseña
 			Connection con=DriverManager.getConnection
-					("jdbc:mysql://localhost:3306/proyecto_empleados?serverTimezone=UTC","root","");
+					("jdbc:mysql://localhost:3306/proyecto_empleados?useUnicode=true " + 
+					" &useJDBCCompliantTimezoneShift=true " +
+					" &useSSL=false " +
+					" &useLegacyDatetimeCode=false "+
+					" &serverTimezone=Europe/Madrid " 
+					,"root","");
 			System.out.println("Conexion con base de datos realizada");
 			return con;
 			
@@ -74,9 +79,6 @@ public static Connection conexion(){
 	
 
 
-
-
-**/
 
 
 }

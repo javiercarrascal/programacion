@@ -59,11 +59,16 @@ public class Pruebas {
 		}
 	**/
 		
-
-		Departamento d=DepartamentoDao.consultaDepartamentoPorNumero(1);
-		System.out.println(d);
-		for(Empleado e:d.getEmpleados()) {
-			System.out.println(e);
+		int codigoDepartamento=1;
+		Departamento depar=DepartamentoDao.consultaDepartamentoPorNumero(codigoDepartamento);
+		
+		
+		
+		System.out.println(depar);
+		
+		for(Empleado emple:depar.getEmpleados()) {
+			
+			System.out.println("     " + emple);
 		}
 		
 		
