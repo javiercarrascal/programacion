@@ -6,7 +6,7 @@ public class Ejemplo1 {
 		/**
 		 * Ejemplo de control de excepciones en el indice de un array
 		 */
-		//Me creo un array de 10 posiciones
+		//Me creo un araray de 10 posiciones
 		int[] array = new int[10];
 		//Dentro del try va el codigo que voy a "intentar" ejecutar
 		try {

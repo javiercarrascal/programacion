@@ -58,7 +58,26 @@ public class DepartamentoDao {
 		}
 	}
 	
-	public static int actualizar(Departamento depar) {return -1;}
+	//Recibo un departamento por parámetro
+	//Debo modificar los datos guardados del departamento con el mismo 
+	//código que el que recibo por parámetro
+	public static int actualizar(Departamento depar) {
+		//Ejemplo:
+		//Departamento en BBDD: 1, madrid, contabilidad
+		//Por parametro recibo: 1, sevilla, sistemas
+		try {
+			PreparedStatement stmt=conexion.prepareStatement
+					("Update departamentos set localidad=?, nombre=? where numero=?");
+			stmt.setString(1, depar.getLocalidad());
+			stmt.setString(2, depar.getNombre());
+			stmt.setInt(3, depar.getNumero());
+			
+			return stmt.executeUpdate();
+		} catch(SQLException e){
+			e.printStackTrace();
+			return -1;
+		}
+	}
 
 	
 	

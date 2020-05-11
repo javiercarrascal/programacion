@@ -18,6 +18,7 @@ public class Empleado {
 	private Date fechaAlta;
 	private int salario;
 	private int comision;
+	
 
 
 	public Empleado() {

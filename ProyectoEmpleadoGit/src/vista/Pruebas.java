@@ -34,21 +34,35 @@ public class Pruebas {
 		e.setFechaAlta(fecha1);
 		
 		**/
+
+		
 		
 		
 		ConexionDao conDao = new ConexionDao();
 		DepartamentoDao depDao = new DepartamentoDao(conDao.getConexion());
 		EmpleadoDao empDao= new EmpleadoDao(conDao.getConexion());
-		/**
+	
+		Departamento depart= new Departamento(1,"Marketing","Sevilla");
+		
+		depDao.actualizar(depart);
+		
+		
 		try {
+			Date fechaLibro= Utilidades.parsearFechaString("29/04/1990");
+			
 			Empleado emple1= new Empleado(1,"perez", "contable",28008,
-					Utilidades.parsearFechaString("29/04/990"),1000,10);
-			empDao.insertar(emple1);
+					fechaLibro,1000,10);
+		
+			
+			
+			
+			
+			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		**/
+	
 		/**
 		Departamento depart= new Departamento(2,"administracion","Bilbao");
 		int filasAfectadas= DepartamentoDao.insertar(depart);

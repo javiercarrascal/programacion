@@ -39,8 +39,8 @@ public static Connection conexion(){
 			System.out.println("Error en la conexion.");
 		}
 		return null;
-	}**/
-	
+	}
+	**/
 	/**
 	 * CONEXION PARA VERSION 8
 	 * @return
@@ -57,7 +57,8 @@ public static Connection conexion(){
 			//1: usuario
 			//2: contraseña
 			Connection con=DriverManager.getConnection
-					("jdbc:mysql://localhost:3306/proyecto_empleados?useUnicode=true " + 
+					("jdbc:mysql://localhost:3306/proyecto_empleados"+
+					" ?useUnicode=true " + 
 					" &useJDBCCompliantTimezoneShift=true " +
 					" &useSSL=false " +
 					" &useLegacyDatetimeCode=false "+
@@ -65,6 +66,7 @@ public static Connection conexion(){
 					,"root","");
 			System.out.println("Conexion con base de datos realizada");
 			return con;
+			
 			
 		} catch (ClassNotFoundException e) {
 			//Entra a este catch si no se encuentra la clase
@@ -77,7 +79,6 @@ public static Connection conexion(){
 	}
 	
 	
-
 
 
 
